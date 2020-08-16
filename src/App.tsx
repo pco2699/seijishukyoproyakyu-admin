@@ -1,5 +1,5 @@
 import * as React from "react";
-import { PostList, PostShow, PostCreate, PostEdit } from "./posts";
+import { MovieList, MovieShow, MovieCreate, MovieEdit } from "./movies";
 import { Admin, Resource } from "react-admin";
 import {
   FirebaseDataProvider,
@@ -11,8 +11,6 @@ const config = require("./FIREBASE_CONFIG.js").firebaseConfig;
 
 const options: RAFirebaseOptions = {
   logging: true,
-  rootRef: "root_collection/some_document",
-  watch: ["posts"]
 };
 const dataProvider = FirebaseDataProvider(config, options);
 const authProvider = FirebaseAuthProvider(config, options);
@@ -22,11 +20,11 @@ class App extends React.Component {
     return (
       <Admin dataProvider={dataProvider} authProvider={authProvider}>
         <Resource
-          name="posts"
-          list={PostList}
-          show={PostShow}
-          create={PostCreate}
-          edit={PostEdit}
+          name="movies"
+          list={MovieList}
+          show={MovieShow}
+          create={MovieCreate}
+          edit={MovieEdit}
         />
       </Admin>
     );
